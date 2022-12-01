@@ -1,4 +1,8 @@
+'use client';
+
 import './globals.css'
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { darkTheme } from '../utils/themes';
 
 export default function RootLayout({
   children,
@@ -12,7 +16,11 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <body id="__next">{children}</body>
+      </ThemeProvider>
     </html>
   )
 }
